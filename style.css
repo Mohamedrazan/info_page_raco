@@ -1,0 +1,417 @@
+/* 
+   RaCo Hotels Design System 
+   Inspired by racohotels.com
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-blue: #1D285C;
+    --accent-teal: #5DC5E3;
+    --navy: #0B162C;
+    --text-white: #FFFFFF;
+    --bg-gray: #F9F9F9;
+    --font-heading: 'Italiana', serif;
+    --font-body: 'Jost', sans-serif;
+
+    /* TV Readability scaling - Enhanced for distance */
+    --h1-size: 10rem;
+    --h2-size: 6rem;
+    --h3-size: 4rem;
+    --body-size: 2.5rem;
+    --nav-size: 2rem;
+}
+
+@media (max-width: 1440px) {
+    :root {
+        --h1-size: 8rem;
+        --h2-size: 4.5rem;
+        --h3-size: 3rem;
+        --body-size: 1.8rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --h1-size: 5rem;
+        --h2-size: 3.5rem;
+        --h3-size: 2.2rem;
+        --body-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --h1-size: 4rem;
+        --h2-size: 2.5rem;
+        --h3-size: 1.8rem;
+        --body-size: 1.1rem;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--body-size);
+    color: var(--navy);
+    line-height: 1.4;
+    background-color: #fff;
+    overflow-x: hidden;
+    font-weight: 500;
+    /* Bold by default for TV */
+}
+
+h1,
+h2,
+h3,
+.heading-font {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+p,
+span,
+div {
+    font-weight: 600;
+    /* Extremely bold for TV readability */
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Header & Logo */
+header {
+    background-color: rgba(29, 40, 92, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-logo {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .main-logo {
+        height: 50px;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(11, 22, 44, 0.5), rgba(11, 22, 44, 0.5)),
+        url('https://racohotels.com/wp-content/uploads/2025/11/Home-Hero-Slider-2.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-white);
+    padding-top: 100px;
+}
+
+.hero h1 {
+    font-size: var(--h1-size);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero h2 {
+    font-size: var(--h2-size);
+    font-family: var(--font-heading);
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Sections */
+section {
+    padding: 15rem 0;
+    /* Larger gaps for TV */
+}
+
+.section-title {
+    font-size: var(--h2-size);
+    margin-bottom: 10rem;
+    text-align: left;
+    color: var(--primary-blue);
+    border-left: 15px solid var(--accent-teal);
+    padding-left: 40px;
+}
+
+.section-dark .section-title {
+    color: var(--text-white);
+}
+
+/* Content Layouts */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.content-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.content-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+}
+
+.content-text h3 {
+    font-size: var(--h3-size);
+    margin-bottom: 40px;
+    color: var(--accent-teal);
+}
+
+/* Tables / Grids for Info */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.info-item {
+    background-color: var(--bg-gray);
+    padding: 60px;
+    border-left: 10px solid var(--accent-teal);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.section-dark .info-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-teal);
+}
+
+.info-label {
+    font-size: 1.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-dark .info-label {
+    color: #aaa;
+}
+
+.info-value {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.section-dark .info-value {
+    color: var(--text-white);
+}
+
+/* Dark Section Style */
+.section-dark {
+    background-color: var(--navy);
+    color: var(--text-white);
+}
+
+/* Room Tiles */
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.room-card {
+    position: relative;
+    height: 700px;
+    overflow: hidden;
+}
+
+.room-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.room-card:hover img {
+    transform: scale(1.05);
+}
+
+.room-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 22, 44, 0.9), transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px;
+    color: #fff;
+}
+
+.room-overlay h4 {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    margin: 0;
+    color: var(--accent-teal);
+}
+
+/* Footer container */
+footer {
+    background-color: #050a14;
+    color: #ffffff;
+    padding: 6rem 0;
+    /* REDUCED footer height */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Logo wrapper */
+.footer-logo-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* VERY LARGE & CLEAR LOGO */
+.footer-logo-img {
+    max-height: 620px;
+    /* MUCH bigger logo */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Footer title text */
+.footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    /* Slightly reduced text size */
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Footer links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* Animation utilities */
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Features / Amenities Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.feature-icon {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.feature-item h4 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+}
+
+.feature-item p {
+    font-size: 2.2rem;
+    color: #444;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
