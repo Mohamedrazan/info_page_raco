@@ -1,25 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.1
-    };
+    const observerOptions = { threshold: 0.1 };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: stop observing once shown
-                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll('.animate');
-    animatedElements.forEach(el => {
-        observer.observe(el);
-    });
+    animatedElements.forEach(el => observer.observe(el));
 });
 
-/* Update style.css to support the intersection observer reveal */
+// Animation styles
 const styleUpdate = `
 .animate {
     opacity: 0;
@@ -36,3 +30,15 @@ const styleUpdate = `
 const styleTag = document.createElement('style');
 styleTag.innerHTML = styleUpdate;
 document.head.appendChild(styleTag);
+
+// 🔹 Flutter → HTML scroll bridge
+window.addEventListener('message', function (event) {
+    if (!event.data) return;
+
+    if (typeof event.data.scroll === 'number') {
+        window.scrollBy({
+            top: event.data.scroll,
+            behavior: 'smooth'
+        });
+    }
+});
